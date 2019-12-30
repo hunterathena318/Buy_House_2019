@@ -1,0 +1,26 @@
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>user_id</th>
+        <th>qa_tool_id</th>
+        <th>status</th>
+        <th>description</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($questions as $question)
+        <tr>
+            <th>{{$question->id}}</th>
+            <td>{{$question->user_id}}</td>
+            <td>{{$question->qa_tool_id}}</td>
+            <td>{{$question->status}}</td>
+            <td>{{$question->description}}</td>
+            <td>{{$question->created_at}}</td>
+            <td>{{$question->updated_at}}</td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>

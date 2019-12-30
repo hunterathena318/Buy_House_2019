@@ -1,0 +1,78 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.0.0",
+        "axios": "^0.19",
+        "cross-env": "^5.1",
+        "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.13",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.3.1",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.7.4",
+        "@material-ui/core": "^4.8.0",
+        "@material-ui/icons": "^4.5.1",
+        "antd": "^3.26.4",
+        "bizcharts": "^3.5.6",
+        "google-maps-react": "^2.0.2",
+        "node-sass": "^4.13.0",
+        "react-countup": "^4.3.0",
+        "react-highlight-words": "^0.16.0",
+        "react-icons": "^3.8.0",
+        "react-multi-carousel": "^2.4.2",
+        "react-router-dom": "^5.1.2",
+        "react-slideshow-image": "^1.3.3"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ]
+    },
+    "env": {
+        "development": {
+            "plugins": [
+                "react-hot-loader/babel",
+                "transform-class-properties"
+            ]
+        },
+        "test": {
+            "plugins": [
+                [
+                    "babel-plugin-webpack-alias-7",
+                    {
+                        "config": "./build_config/webpack.common.js"
+                    }
+                ],
+                "istanbul",
+                "dynamic-import-node",
+                "@babel/plugin-proposal-object-rest-spread"
+            ]
+        },
+        "production": {
+            "plugins": [
+                "transform-react-remove-prop-types",
+                [
+                    "recharts"
+                ]
+            ]
+        }
+    }
+}
